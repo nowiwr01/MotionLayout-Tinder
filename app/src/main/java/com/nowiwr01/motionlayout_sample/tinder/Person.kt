@@ -1,4 +1,4 @@
-package com.nowiwr01.motionlayout_tinder
+package com.nowiwr01.motionlayout_sample.tinder
 
 data class Person(
     val name: String,

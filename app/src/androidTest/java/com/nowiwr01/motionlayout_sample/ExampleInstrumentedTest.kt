@@ -1,4 +1,4 @@
-package com.nowiwr01.motionlayout_tinder
+package com.nowiwr01.motionlayout_sample
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.nowiwr01.motionlayout_tinder", appContext.packageName)
+        assertEquals("com.nowiwr01.motionlayout_sample", appContext.packageName)
     }
 }

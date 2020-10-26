@@ -6,10 +6,9 @@ plugins {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.nowiwr01.motionlayout_tinder"
+        applicationId "com.nowiwr01.motionlayout_sample"
         minSdkVersion 23
         targetSdkVersion 30
         versionCode 1

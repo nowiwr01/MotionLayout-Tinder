@@ -1,35 +1,27 @@
-package com.nowiwr01.motionlayout_tinder
+package com.nowiwr01.motionlayout_sample.tinder
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.motion.widget.MotionLayout
-import androidx.constraintlayout.motion.widget.TransitionAdapter
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.activity_main.*
+import com.nowiwr01.motionlayout_sample.R
+import com.nowiwr01.motionlayout_sample.extensions.setSwipeCardsAnimation
+import kotlinx.android.synthetic.main.activity_tinder.*
 
-class MainActivity : AppCompatActivity() {
+class TinderActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_tinder)
 
-        val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        val viewModel = ViewModelProviders.of(this).get(TinderViewModel::class.java)
 
         viewModel.getPersonList().observe(this) {
             bindCard(it)
         }
 
-        motionLayout.setTransitionListener(object : TransitionAdapter() {
-            override fun onTransitionCompleted(motionLayout: MotionLayout, currentId: Int) {
-                when (currentId) {
-                    R.id.offScreenDislike, R.id.offScreenLike -> {
-                        motionLayout.progress = 0f
-                        motionLayout.setTransition(R.id.start, currentId)
-                        viewModel.swipe()
-                    }
-                }
-            }
-        })
+        motionLayout.setSwipeCardsAnimation {
+            viewModel.swipe()
+        }
 
         likeB.setOnClickListener {
             motionLayout.transitionToState(R.id.likeB)

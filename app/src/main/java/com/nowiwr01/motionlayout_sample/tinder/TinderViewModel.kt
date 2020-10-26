@@ -1,9 +1,10 @@
-package com.nowiwr01.motionlayout_tinder
+package com.nowiwr01.motionlayout_sample.tinder
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.nowiwr01.motionlayout_sample.R
 
-class MainViewModel : ViewModel() {
+class TinderViewModel: ViewModel() {
 
     private val personList = MutableLiveData<TinderCard>()
     fun getPersonList() = personList

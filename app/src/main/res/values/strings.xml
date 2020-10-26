@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">MotionLayout-Tinder</string>
+    <string name="app_name">MotionLayout-Sample</string>
+    <string name="layout_tinder">Layout Tinder</string>
+    <string name="layout_youtube">Layout Youtube</string>
 </resources>

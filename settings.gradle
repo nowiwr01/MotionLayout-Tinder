@@ -1,2 +1,2 @@
+rootProject.name = "MotionLayout-Sample"
 include ':app'
-rootProject.name = "MotionLayout-Tinder"
