@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    /*
+    * Default required start transition, otherwise throws error.
+    */
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1000"/>
+
+    /*
+    * Like transition.
+    */
+    <Transition
+        app:duration="300"
+        app:constraintSetEnd="@+id/likeB"
+        app:constraintSetStart="@+id/start">
+        <OnSwipe
+            app:dragDirection="dragRight"
+            app:onTouchUp="autoComplete"
+            app:touchAnchorId="@id/card"
+            app:touchAnchorSide="right"
+            app:touchRegionId="@id/card"/>
+        <KeyFrameSet>
+            <KeyPosition
+                app:framePosition="50"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/card"
+                app:percentY="-0.15" />
+        </KeyFrameSet>
+    </Transition>
+
+    /*
+    * Dislike transition.
+    */
+    <Transition
+        app:duration="300"
+        app:constraintSetEnd="@id/dislike"
+        app:constraintSetStart="@+id/start">
+        <OnSwipe
+            app:dragDirection="dragLeft"
+            app:onTouchUp="autoComplete"
+            app:touchAnchorId="@id/card"
+            app:touchAnchorSide="left"
+            app:touchRegionId="@id/card"/>
+        <KeyFrameSet>
+            <KeyPosition
+                app:framePosition="50"
+                app:keyPositionType="pathRelative"
+                app:motionTarget="@id/card"
+                app:percentY="0.15" />
+        </KeyFrameSet>
+    </Transition>
+
+    /*
+    * Like out of screen from like position transition.
+    */
+    <Transition
+        app:autoTransition="animateToEnd"
+        app:constraintSetEnd="@+id/offScreenLike"
+        app:constraintSetStart="@+id/likeB"
+        app:duration="3500" />
+
+    /*
+    * Dislike out of screen from dislike position transition.
+    */
+    <Transition
+        app:autoTransition="animateToEnd"
+        app:constraintSetEnd="@+id/offScreenDislike"
+        app:constraintSetStart="@+id/dislike"
+        app:duration="3500" />
+
+    /*
+    * Get detail info by specific card.
+    */
+    <Transition
+        app:constraintSetEnd="@+id/detail"
+        app:constraintSetStart="@id/start"
+        app:duration="500">
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@id/flash"/>
+    </Transition>
+
+    /*
+    * Default start position on the screen.
+    */
+    <ConstraintSet android:id="@+id/start">
+        <Constraint android:id="@id/card">
+            <Layout
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toTopOf="@id/guideline_h_85"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container" />
+        </Constraint>
+        <Constraint android:id="@id/card2">
+            <Layout
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toTopOf="@id/guideline_h_85"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container" />
+            <Transform
+                android:scaleX="0.80"
+                android:scaleY="0.80" />
+        </Constraint>
+    </ConstraintSet>
+
+    /*
+    * Like behavior.
+    */
+    <ConstraintSet android:id="@+id/likeB">
+        <Constraint android:id="@id/card">
+            <Layout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="80dp"
+                app:layout_constraintStart_toStartOf="parent" />
+<!--            <Transform-->
+<!--                android:scaleX="0.8"-->
+<!--                android:scaleY="0.8" />-->
+        </Constraint>
+        <Constraint android:id="@id/card2">
+            <Layout
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toTopOf="@id/guideline_h_85"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container"  />
+            <Transform
+                android:scaleX="1"
+                android:scaleY="1" />
+        </Constraint>
+    </ConstraintSet>
+
+    /*
+    * Dislike behavior.
+    */
+    <ConstraintSet android:id="@+id/dislike">
+        <Constraint android:id="@id/card">
+            <Layout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="200dp"
+                android:layout_marginBottom="80dp"
+                app:layout_constraintEnd_toEndOf="parent" />
+<!--            <Transform-->
+<!--                android:scaleX="0.8"-->
+<!--                android:scaleY="0.8" />-->
+        </Constraint>
+        <Constraint android:id="@id/card2">
+            <Layout
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toTopOf="@id/guideline_h_85"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/container" />
+            <Transform
+                android:scaleX="1"
+                android:scaleY="1" />
+        </Constraint>
+    </ConstraintSet>
+
+    /*
+    * Like out of screen from like position behavior.
+    */
+    <ConstraintSet
+        android:id="@+id/offScreenLike"
+        app:deriveConstraintsFrom="@id/likeB">
+        <Constraint android:id="@id/card">
+            <Layout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="80dp"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintWidth_percent="0.7" />
+        </Constraint>
+    </ConstraintSet>
+
+    /*
+    * Dislike out of screen from dislike position behavior.
+    */
+    <ConstraintSet
+        android:id="@+id/offScreenDislike"
+        app:deriveConstraintsFrom="@id/dislike">
+        <Constraint android:id="@id/card">
+            <Layout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="500dp"
+                android:layout_marginBottom="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintWidth_percent="0.7" />
+        </Constraint>
+    </ConstraintSet>
+
+    /*
+    * Hide navigation bar and expand our card to full screen.
+    */
+    <ConstraintSet android:id="@+id/detail">
+        <Constraint android:id="@id/container">
+            <Layout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="500dp"/>
+        </Constraint>
+        <Constraint android:id="@id/card">
+            <Layout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/guideline_h_85"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CustomAttribute
+                app:attributeName="radius"
+                app:customDimension="0dp" />
+        </Constraint>
+        <Constraint android:id="@id/card2">
+            <PropertySet android:alpha="0" />
+        </Constraint>
+    </ConstraintSet>
+
+</MotionScene>
