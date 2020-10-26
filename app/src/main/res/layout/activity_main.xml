@@ -6,9 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fafafa"
-    app:layoutDescription="@xml/activity_main_motion_start_scene2"
-    app:motionDebug="SHOW_ALL"
+    app:layoutDescription="@xml/activity_main_motion_scene"
     tools:context=".MainActivity">
+
+    <ImageView
+        android:elevation="24dp"
+        android:id="@+id/likeIcon"
+        android:src="@drawable/ic_like"
+        app:tint="#30e6aa"
+        android:background="@drawable/background_circle"
+        android:layout_height="0dp"
+        android:layout_width="0dp" />
+
+    <ImageView
+        android:elevation="24dp"
+        android:id="@+id/passIcon"
+        android:src="@drawable/ic_dislike"
+        android:background="@drawable/background_circle"
+        app:tint="#E91E63"
+        android:layout_height="0dp"
+        android:layout_width="0dp"/>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/container"
@@ -128,7 +145,7 @@
         android:layout_height="0dp"
         android:layout_marginHorizontal="4dp"
         android:layout_marginTop="4dp"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="16dp"
         app:cardElevation="16dp"
         app:layout_constraintBottom_toTopOf="@id/guideline_h_85"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,6 +160,7 @@
                 android:id="@+id/photo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/girl1" />
 
@@ -250,21 +268,5 @@
         app:layout_constraintStart_toEndOf="@+id/likeB"
         app:layout_constraintTop_toBottomOf="@id/guideline_h_85"
         app:tint="#8e24aa" />
-
-    <ImageView
-        android:id="@+id/likeIcon"
-        android:src="@drawable/ic_like"
-        app:tint="#fbc02d"
-        android:background="@drawable/background_circle"
-        android:layout_height="0dp"
-        android:layout_width="0dp" />
-
-    <ImageView
-        android:id="@+id/passIcon"
-        android:src="@drawable/ic_dislike"
-        android:background="@drawable/background_circle"
-        app:tint="#e64a19"
-        android:layout_height="0dp"
-        android:layout_width="0dp"/>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

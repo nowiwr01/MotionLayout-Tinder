@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.motion.widget.TransitionAdapter
 import androidx.lifecycle.ViewModelProviders
-import kotlinx.android.synthetic.main.activity_main_motion_start.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_motion_start)
+        setContentView(R.layout.activity_main)
 
         val viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
                 when (currentId) {
                     R.id.offScreenDislike, R.id.offScreenLike -> {
                         motionLayout.progress = 0f
-                        motionLayout.setTransition(R.id.start, R.id.detail)
+                        motionLayout.setTransition(R.id.start, currentId)
                         viewModel.swipe()
                     }
                 }

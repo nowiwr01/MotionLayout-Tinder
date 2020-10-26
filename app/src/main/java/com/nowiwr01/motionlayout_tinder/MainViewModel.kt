@@ -10,16 +10,16 @@ class MainViewModel : ViewModel() {
 
     private val data = listOf(
         Person(
+            name = "Melanie Cross",
+            age = 17,
+            info = "Girl with your favorite name",
+            photo = R.drawable.girl1
+        ),
+        Person(
             name = "Darina Temnova",
             age = 21,
             info = "Love to dance and send you nudes",
             photo = R.drawable.girl2
-        ),
-        Person(
-            name = "Melanie Cross",
-            age = 16,
-            info = "Girl with your favorite name",
-            photo = R.drawable.girl1
         )
     )
 
