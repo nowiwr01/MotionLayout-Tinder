@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#fafafa"
     app:layoutDescription="@xml/sence_tinder"
-    tools:context=".tinder.TinderActivity">
+    tools:context=".view.tinder.TinderActivity">
 
     <ImageView
         android:elevation="24dp"

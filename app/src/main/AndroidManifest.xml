@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tinder.TinderActivity"/>
+        <activity android:name="com.nowiwr01.motionlayout_sample.view.tinder.TinderActivity"/>
+        <activity android:name="com.nowiwr01.motionlayout_sample.view.youtube.YoutubeActivity"/>
     </application>
 
 </manifest>
